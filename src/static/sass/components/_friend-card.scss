@@ -1,0 +1,26 @@
+.friend-card {
+	display: flex;
+	align-items: center;
+	padding: 2rem 0;
+	cursor: pointer;
+
+	&:hover {
+		background: rgba(0, 0, 0, 0.1);
+	}
+
+	&__image-container {
+		width: 4rem;
+		height: 4rem;
+		margin: 0;
+		margin-right: 3.5rem;
+
+		img {
+			width: 4rem !important;
+			height: 4rem;
+		}
+	}
+
+	&__name {
+		font-size: 1.3rem;
+	}
+}

@@ -1,0 +1,37 @@
+.messages-list-card {
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+	border-bottom: 1px solid #e1e1e1;
+
+	&__image-container {
+		flex-shrink: 0;
+		max-width: 7rem;
+		overflow: hidden;
+	}
+
+	&__image {
+		width: 7rem;
+		height: 7rem;
+		object-fit: cover;
+	}
+
+	&__infor {
+		margin: 0 1.5rem;
+	}
+
+	&__username,
+	&__lastMessage {
+		color: $color-grey-dark;
+		opacity: 0.7;
+	}
+
+	&__username {
+		font-size: 1.4rem;
+	}
+
+	&__lastMessage {
+		font-size: 1.2rem;
+		@include truncateLine(2);
+	}
+}

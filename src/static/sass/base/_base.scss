@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+* {
+	font-family: "Open Sans", sans-serif;
+}
+
+*:focus {
+	outline: none !important;
+}
+
+html {
+	// This defines what 1rem is
+	font-size: 62.5%; // 1rem = 10px;
+
+	@include respond(big-desktop) {
+		font-size: 62.5%; // 1rem = 12px
+	}
+
+	@include respond(tab-land) {
+		font-size: 56.25%; // 1rem = 9px ,
+	}
+
+	@include respond(tab-port) {
+		font-size: 50%; // 1rem = 8px
+	}
+}
+
+body {
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+img {
+	overflow: hidden;
+}
+
+@include custom-scroll-bar;

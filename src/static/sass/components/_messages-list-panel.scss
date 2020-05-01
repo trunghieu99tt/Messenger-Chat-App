@@ -1,0 +1,13 @@
+.messages-list-panel {
+	margin-top: 1rem;
+
+	::-webkit-scrollbar {
+		display: none !important;
+	}
+
+	&__main {
+		margin-top: 3rem;
+		max-height: 80vh;
+		overflow-y: auto;
+	}
+}

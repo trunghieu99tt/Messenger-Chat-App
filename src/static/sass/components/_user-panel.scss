@@ -1,0 +1,22 @@
+.user-infor {
+	text-align: center;
+	margin-bottom: 2rem;
+
+	&__name {
+		font-size: 1.3rem;
+		margin-top: 2rem;
+	}
+}
+
+.friends-list {
+	margin: 1rem;
+
+	::-webkit-scrollbar {
+		display: none;
+	}
+
+	&__main-list {
+		max-height: 40rem;
+		overflow-y: scroll;
+	}
+}

@@ -1,0 +1,19 @@
+.search-bar {
+	position: relative;
+	&__input {
+		width: 100%;
+		outline: none;
+		border: none;
+		background: $color-grey-light-1;
+		padding: 1rem;
+		border-radius: 999px;
+	}
+
+	&__icon {
+		position: absolute;
+		top: 50%;
+		right: 0%;
+		font-size: 15px;
+		transform: translate(-50%, -50%);
+	}
+}

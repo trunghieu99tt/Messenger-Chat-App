@@ -1,0 +1,21 @@
+.message-form {
+	&__input {
+		width: 90%;
+		padding: 1rem;
+		border: none;
+		border-radius: 999px;
+		background: #f7f7f7;
+		font-size: 1.5rem;
+	}
+
+	&__file-label {
+		cursor: pointer;
+		.anticon {
+			font-size: 2rem;
+		}
+	}
+
+	&__file {
+		display: none;
+	}
+}

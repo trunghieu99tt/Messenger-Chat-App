@@ -1,0 +1,24 @@
+.toolbar {
+	&-item {
+		margin: 1rem 0;
+		cursor: pointer;
+		padding: 1rem 2rem;
+		font-size: 1.4rem;
+		display: flex;
+		align-items: center;
+
+		&__text {
+			padding-left: 1rem;
+		}
+
+		&:hover {
+			color: $color-primary;
+			border-left: 2px solid $color-primary;
+		}
+	}
+
+	&-item.active {
+		color: $color-primary;
+		border-left: 2px solid $color-primary;
+	}
+}

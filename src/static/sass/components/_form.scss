@@ -1,0 +1,36 @@
+.form {
+	&__heading {
+		font-size: 4rem;
+		text-align: center;
+		text-transform: uppercase;
+		font-weight: 500;
+		background-image: linear-gradient(
+			to right,
+			$color-primary,
+			$color-primary-dark
+		);
+		-webkit-background-clip: text;
+		color: transparent;
+	}
+
+	&__main {
+		padding: 5rem;
+		background: #fff;
+		border-radius: 10px;
+		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.16);
+		align-items: center;
+	}
+
+	&__image-container {
+		@include respond(tab-port) {
+			display: none;
+		}
+	}
+
+	&__add-info {
+		margin: 1rem 0;
+		display: block;
+		text-align: center;
+		font-size: 1.3rem;
+	}
+}
