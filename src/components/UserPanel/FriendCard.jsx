@@ -1,9 +1,13 @@
 import { Tag } from "antd";
 import React from "react";
 
-const FriendCard = ({ image, name, isOnline, userId }) => {
+const FriendCard = ({ image, name, isOnline, userId, handleClick }) => {
 	return (
-		<div className="friend-card" key={`friend-card-${userId}`}>
+		<div
+			className="friend-card"
+			key={`friend-card-${userId}`}
+			onClick={handleClick}
+		>
 			<figure className="friend-card__image-container">
 				<img
 					className={`friend-card__image w-100 rounded ${

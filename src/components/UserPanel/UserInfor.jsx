@@ -1,8 +1,4 @@
-import {
-	LogoutOutlined,
-	MessageOutlined,
-	UsergroupAddOutlined,
-} from "@ant-design/icons";
+import { LogoutOutlined, MessageOutlined } from "@ant-design/icons";
 import React from "react";
 
 const UserInfor = ({ photoURL, displayName, activeToolbarItem }) => {
@@ -30,14 +26,6 @@ const UserInfor = ({ photoURL, displayName, activeToolbarItem }) => {
 				>
 					<MessageOutlined />
 					<span className="toolbar-item__text">Chat</span>
-				</div>
-				<div
-					className="toolbar-item"
-					toolbaritemid={2}
-					onClick={(event) => activeToolbarItem(event, false)}
-				>
-					<UsergroupAddOutlined />
-					<span className="toolbar-item__text">New Group</span>
 				</div>
 
 				<div

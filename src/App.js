@@ -7,10 +7,6 @@ import firebase from "./firebase";
 import { saveUsers } from "./redux/actions/user.action";
 
 class App extends Component {
-	// console.log("currentChannel", currentChannel);
-	// console.log("currentUser", currentUser);
-	// console.log("isPrivateChannel", isPrivateChannel);
-
 	state = {
 		usersRef: firebase.database().ref("users"),
 		connectedRef: firebase.database().ref(".info/connected"),
@@ -33,17 +29,15 @@ class App extends Component {
 
 		usersRef.on("child_added", (snap) => {
 			if (currentUserUid !== snap.key) {
-				// console.log("snap", snap);
 				let user = snap.val();
 				user["uid"] = snap.key;
 				user["status"] = "offline";
 				loadedUsers.push(user);
-				// console.log("loadedUsers", loadedUsers);
+				console.log("loadedUsers", loadedUsers);
 				this.setState({ users: loadedUsers });
 				saveUsers(loadedUsers);
 			}
 		});
-
 		connectedRef.on("value", (snap) => {
 			if (snap.val()) {
 				const ref = presenceRef.child(currentUserUid);
@@ -71,7 +65,6 @@ class App extends Component {
 
 	addStatusToUser = (userId, connected = true) => {
 		const { users } = this.state;
-		console.log("users", users);
 		const { setUsers } = this.props;
 
 		const updatedUsers = users.reduce((acc, user) => {
@@ -110,14 +103,9 @@ class App extends Component {
 			: `${currentUserId}/${userId}`;
 	};
 
-	// console.log("users", users);
 	render() {
 		const { currentUser, currentChannel } = this.props;
 		const { users } = this.state;
-
-		// console.log("users", users);
-
-		// console.log("currentChannel", currentChannel);
 
 		return (
 			<React.Fragment>
@@ -148,10 +136,6 @@ class App extends Component {
 							currentUser={currentUser}
 						/>
 					</div>
-
-					{/* <div className="col-lg-2">
-					<ContactInforPanel />
-				</div> */}
 				</div>
 			</React.Fragment>
 		);

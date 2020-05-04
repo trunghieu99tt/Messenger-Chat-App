@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import firebase from "../../firebase";
+import { setCurrentChannel } from "../../redux/actions/channel.action";
 import Search from "../Search";
 import MessageListCard from "./MessageListCard";
 
@@ -34,9 +35,11 @@ class MessagesListPanel extends Component {
 		const ref = messagesRef;
 		ref.child(channelId).on("child_added", (snap) => {
 			const { key } = snap;
+			const allMessages = Object.values(snap.val());
+
 			if (!users.includes(key)) {
 				loadedMessages.push({
-					messages: snap.val(),
+					messages: allMessages?.[allMessages.length - 1],
 					userId: key,
 				});
 				users.push(key);
@@ -49,11 +52,16 @@ class MessagesListPanel extends Component {
 		});
 	};
 
+	handleClick = (item) => {
+		const { setCurrentChannel } = this.props;
+		setCurrentChannel(item);
+	};
+
 	render() {
 		const { otherUsers } = this.props;
 		const { messages, users } = this.state;
 
-		// console.log("messages", messages);
+		console.log("messages", messages);
 		// console.log("users", users);
 
 		return (
@@ -63,14 +71,21 @@ class MessagesListPanel extends Component {
 					{otherUsers
 						?.filter((user) => users.includes(user.uid))
 						.map((item, index) => {
-							const { avatar, name } = item;
+							const { avatar, name, uid } = item;
+							console.log("item", item);
+
+							const lastMessage = messages.find(
+								(e) => e.userId === uid
+							);
+							// console.log("lastMessage", lastMessage);
 
 							return (
 								<MessageListCard
 									name={name || ""}
 									image={avatar || ""}
 									currentChatting={index === 0}
-									lastMessage="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam alias laborum praesentium quasi eum ipsum ipsa at asperiores ut eveniet, suscipit repudiandae voluptatibus repellendus velit perspiciatis soluta unde magni dolor."
+									lastMessage={lastMessage?.messages || ""}
+									handleClick={() => this.handleClick(item)}
 								/>
 							);
 						})}
@@ -84,4 +99,6 @@ const mapStateToProps = (state) => ({
 	currentUser: state.user.currentUser,
 });
 
-export default connect(mapStateToProps)(MessagesListPanel);
+export default connect(mapStateToProps, { setCurrentChannel })(
+	MessagesListPanel
+);

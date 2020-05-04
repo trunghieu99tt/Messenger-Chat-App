@@ -1,29 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setCurrentChannel } from "../../redux/actions/channel.action";
+import FriendCard from "./FriendCard";
 
 class FriendsList extends Component {
 	state = {
 		usersList: [],
 	};
 
-	componentDidUpdate(prevProps) {
-		if (this.props.userList !== prevProps.userList) {
-			this.setState({ usersList: this.props.userList }, () => {
-				const { usersList } = this.state;
-				console.log("typeof userList", typeof usersList);
-				console.log("usersList.length", usersList.length);
-				console.log("this.state.usersList", this.state.usersList);
-			});
-		}
-	}
+	handleClick = (item) => {
+		const { setCurrentChannel } = this.props;
+		setCurrentChannel(item);
+	};
 
 	render() {
 		const { userList, setCurrentChannel, users } = this.props;
-		const { usersList } = this.state;
-
-		console.log("usersList", usersList);
-		console.log("users", users);
 
 		return (
 			<section className="friends-list">
@@ -32,9 +23,8 @@ class FriendsList extends Component {
 				</header>
 
 				<div className="friends-list__main-list">
-					{/* {userList?.length > 0 &&
-						userList[0] &&
-						Object.values(userList[0]).map((item) => {
+					{userList?.length &&
+						userList.map((item) => {
 							const { avatar, name, status, uid } = item;
 							return (
 								<FriendCard
@@ -42,10 +32,10 @@ class FriendsList extends Component {
 									name={name}
 									isOnline={status === "online"}
 									userId={uid}
-									onClick={setCurrentChannel(item)}
+									handleClick={() => this.handleClick(item)}
 								/>
 							);
-						})} */}
+						})}
 				</div>
 			</section>
 		);

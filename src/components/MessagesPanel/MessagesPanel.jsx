@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import firebase from "../../firebase";
 import MessageForm from "./MessageForm";
 import MessagesPanelHeader from "./MessagesPanelHeader";
@@ -24,6 +25,7 @@ class MessagesPanel extends Component {
 
 	UNSAFE_componentWillReceiveProps(nextProps) {
 		const { currentUser, currentChannel } = nextProps;
+		console.log("currentChannel from nextProps", currentChannel);
 		currentChannel && currentUser && this.addListeners(currentChannel.uid);
 	}
 
@@ -88,6 +90,8 @@ class MessagesPanel extends Component {
 
 		const { currentChannel, currentUser } = this.props;
 
+		console.log("currentChannel", currentChannel);
+
 		// console.log("messages", messages);
 
 		return (
@@ -114,4 +118,8 @@ class MessagesPanel extends Component {
 	}
 }
 
-export default MessagesPanel;
+const mapStateToProps = (state) => ({
+	currentChannel: state.channel.currentChannel,
+});
+
+export default connect(mapStateToProps)(MessagesPanel);
