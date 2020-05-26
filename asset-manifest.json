@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/Messenger-Chat-App/static/css/main.001611bd.chunk.css",
+    "main.js": "/Messenger-Chat-App/static/js/main.5f6d563a.chunk.js",
+    "main.js.map": "/Messenger-Chat-App/static/js/main.5f6d563a.chunk.js.map",
+    "runtime-main.js": "/Messenger-Chat-App/static/js/runtime-main.9366f082.js",
+    "runtime-main.js.map": "/Messenger-Chat-App/static/js/runtime-main.9366f082.js.map",
+    "static/css/2.7f39cfac.chunk.css": "/Messenger-Chat-App/static/css/2.7f39cfac.chunk.css",
+    "static/js/2.53d46a1e.chunk.js": "/Messenger-Chat-App/static/js/2.53d46a1e.chunk.js",
+    "static/js/2.53d46a1e.chunk.js.map": "/Messenger-Chat-App/static/js/2.53d46a1e.chunk.js.map",
+    "index.html": "/Messenger-Chat-App/index.html",
+    "precache-manifest.aada571f016f31874670c7cbe641cef5.js": "/Messenger-Chat-App/precache-manifest.aada571f016f31874670c7cbe641cef5.js",
+    "service-worker.js": "/Messenger-Chat-App/service-worker.js",
+    "static/css/2.7f39cfac.chunk.css.map": "/Messenger-Chat-App/static/css/2.7f39cfac.chunk.css.map",
+    "static/css/main.001611bd.chunk.css.map": "/Messenger-Chat-App/static/css/main.001611bd.chunk.css.map",
+    "static/js/2.53d46a1e.chunk.js.LICENSE.txt": "/Messenger-Chat-App/static/js/2.53d46a1e.chunk.js.LICENSE.txt",
+    "static/media/default-avatar.png": "/Messenger-Chat-App/static/media/default-avatar.5097b024.png",
+    "static/media/register.jpg": "/Messenger-Chat-App/static/media/register.98d17d5f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9366f082.js",
+    "static/css/2.7f39cfac.chunk.css",
+    "static/js/2.53d46a1e.chunk.js",
+    "static/css/main.001611bd.chunk.css",
+    "static/js/main.5f6d563a.chunk.js"
+  ]
+}
